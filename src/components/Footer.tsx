@@ -14,20 +14,26 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
           {/* Col 1 Logo & Description */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex flex-col text-left">
-              <div className="flex items-center gap-1">
-                <span className="font-black text-xl tracking-wider text-white uppercase">
-                  AUTO<span className="text-[#ff3847]">URANIUM</span>
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/auto_uranium_logo.jpg"
+                alt="Auto Uranium Logo"
+                className="w-14 h-14 rounded-full object-cover border border-white/20 shadow-lg"
+              />
+              <div className="flex flex-col text-left">
+                <div className="flex items-center gap-1">
+                  <span className="font-black text-xl tracking-wider text-white uppercase">
+                    AUTO<span className="text-[#ff3847]">URANIUM</span>
+                  </span>
+                </div>
+                <span className="text-[8px] tracking-[0.18em] text-gray-400 font-semibold uppercase -mt-0.5">
+                  AN AUTO DETAILING STUDIO
                 </span>
-                <span className="text-[#ff3847] text-lg font-black">+</span>
               </div>
-              <span className="text-[8px] tracking-[0.2em] text-gray-400 font-semibold uppercase -mt-0.5">
-                PROTECT WHAT MOVES YOU
-              </span>
             </div>
 
             <p className="text-[11px] leading-relaxed text-gray-400 max-w-sm">
-              Premium car care solutions for a cleaner, shinier and safer tomorrow. DPDP Act 2023 Compliant.
+              Premium car care solutions for a cleaner, shinier and safer tomorrow. Viraj Trading Est. 2006. DPDP Act 2023 Compliant.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -65,7 +71,7 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps) {
             <ul className="space-y-2 text-[11px]">
               <li><a href="#hero" className="hover:text-white transition-colors">Home</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#process" className="hover:text-white transition-colors">About</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
               <li><a href="#3d-studio" className="hover:text-white transition-colors">Gallery</a></li>
               <li><a href="#reviews" className="hover:text-white transition-colors">Reviews</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 interface ServicesGridProps {
@@ -69,10 +70,16 @@ export default function ServicesGrid({ onSelectService }: ServicesGridProps) {
   ];
 
   return (
-    <section id="services" className="py-20 bg-[#0a0a0c] relative">
+    <section id="services" className="py-24 bg-[#0a0a0c] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 text-left"
+        >
           <div>
             <div className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-2">
               OUR SERVICES
@@ -89,19 +96,24 @@ export default function ServicesGrid({ onSelectService }: ServicesGridProps) {
             <span>View All Services</span>
             <ArrowRight className="w-4 h-4 text-[#ff3847] group-hover:translate-x-1 transition-transform" />
           </button>
-        </div>
+        </motion.div>
 
-        {/* 6 Services Grid Cards with High-Res Uploaded Images */}
+        {/* 6 Services Grid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => onSelectService(service.title)}
               className="relative group h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-[#ff3847] transition-all duration-300 cursor-pointer shadow-xl"
             >
-              {/* Background Image with Dark Gradient Overlay */}
+              {/* Background Image */}
               <div
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700 ease-out"
                 style={{ backgroundImage: `url(${service.bgImage})` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
@@ -110,7 +122,7 @@ export default function ServicesGrid({ onSelectService }: ServicesGridProps) {
               <div className="absolute inset-0 p-6 flex flex-col justify-end text-left z-10">
                 <div className="flex items-end justify-between">
                   <div>
-                    <h3 className="text-2xl font-black text-white uppercase tracking-wide">
+                    <h3 className="text-2xl font-black text-white uppercase tracking-wide group-hover:text-[#ff3847] transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-xs font-medium text-gray-300 mt-0.5">
@@ -118,18 +130,20 @@ export default function ServicesGrid({ onSelectService }: ServicesGridProps) {
                     </p>
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={(e) => {
                       e.stopPropagation();
                       onSelectService(service.title);
                     }}
-                    className="w-10 h-10 rounded-full border border-white/30 bg-black/40 group-hover:bg-[#ff3847] group-hover:border-[#ff3847] text-white flex items-center justify-center transition-all"
+                    className="w-10 h-10 rounded-full border border-white/30 bg-black/40 group-hover:bg-[#ff3847] group-hover:border-[#ff3847] text-white flex items-center justify-center transition-all shadow-lg"
                   >
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

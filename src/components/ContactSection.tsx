@@ -1,22 +1,28 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Navigation, Send, MessageCircle, ShieldCheck } from 'lucide-react';
+import { motion } from 'motion/react';
+import { MapPin, Phone, Clock, Navigation, Send, MessageCircle } from 'lucide-react';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-24 bg-[#080b12] relative border-t border-white/5">
+    <section id="contact" className="py-24 bg-[#080b12] relative border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column Studio Info */}
-          <div className="lg:col-span-5 space-y-8 text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-8 text-left"
+          >
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] text-xs font-bold uppercase tracking-widest mb-3">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>STUDIO LOCATION</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
-                Visit Auto <span className="text-gradient-uranium">Uranium</span>
+                Visit Auto <span className="text-[#00ff88]">Uranium</span>
               </h2>
               <p className="text-sm text-gray-400 mt-2">
                 Prayagraj's premier auto detailing & paint protection destination since 2006.
@@ -25,8 +31,8 @@ export default function ContactSection() {
 
             {/* Info Cards */}
             <div className="space-y-4">
-              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#ff3847]/20 text-[#ff3847] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-start gap-4 hover:border-white/20 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#ff3847]/20 text-[#ff3847] flex items-center justify-center shrink-0 mt-0.5 shadow-md">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -37,8 +43,8 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#00ff88]/20 text-[#00ff88] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-start gap-4 hover:border-white/20 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#00ff88]/20 text-[#00ff88] flex items-center justify-center shrink-0 mt-0.5 shadow-md">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -52,8 +58,8 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-[#00f0ff] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-start gap-4 hover:border-white/20 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-[#00f0ff] flex items-center justify-center shrink-0 mt-0.5 shadow-md">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -71,7 +77,7 @@ export default function ContactSection() {
                 href="https://maps.google.com/?q=39/25,+Maharshi+Dayanand+Marg,+behind+Royal+Enfield+Showroom,+Vivek+Vihar+Colony,+Civil+Lines,+Prayagraj,+Uttar+Pradesh+211001"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#ff3847] hover:bg-[#e6001b] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-[#ff3847]/30"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#ff3847] hover:bg-[#e62e3d] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-[#ff3847]/30 hover:scale-105"
               >
                 <Navigation className="w-4 h-4" /> Get Directions
               </a>
@@ -79,17 +85,23 @@ export default function ContactSection() {
                 href="https://wa.me/919935413993"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#00ff88] hover:bg-[#00dd77] text-black text-xs font-extrabold uppercase tracking-wider transition-all shadow-lg shadow-[#00ff88]/30"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#00ff88] hover:bg-[#00dd77] text-black text-xs font-extrabold uppercase tracking-wider transition-all shadow-lg shadow-[#00ff88]/30 hover:scale-105"
               >
                 <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column Contact Form & Interactive Map Card */}
-          <div className="lg:col-span-7 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-6"
+          >
             {/* Embedded Google Map Frame */}
-            <div className="rounded-3xl overflow-hidden glass-panel border border-white/10 h-[280px] relative">
+            <div className="rounded-3xl overflow-hidden glass-panel border border-white/10 h-[280px] relative shadow-2xl">
               <iframe
                 title="Auto Uranium Prayagraj Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.8258380387413!2d81.826!3d25.452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399acb2e4874c3b1%3A0xa4c852a51757aeb3!2sAuto%20Uranium!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -103,7 +115,7 @@ export default function ContactSection() {
             </div>
 
             {/* Quick Contact Form */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0c1017] border border-white/10 text-left space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#0c1017] border border-white/10 text-left space-y-4 shadow-2xl">
               <h3 className="text-lg font-extrabold text-white uppercase">
                 Send Direct Studio Inquiry
               </h3>
@@ -136,7 +148,7 @@ export default function ContactSection() {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

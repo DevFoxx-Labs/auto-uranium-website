@@ -7,6 +7,7 @@ import FeatureHighlights from '@/components/FeatureHighlights';
 import Car3DStudio from '@/components/Car3DStudio';
 import ServicesGrid from '@/components/ServicesGrid';
 import ProcessWorkflow from '@/components/ProcessWorkflow';
+import AboutSection from '@/components/AboutSection';
 import ValueBanner from '@/components/ValueBanner';
 import BeforeAfterGallery from '@/components/BeforeAfterGallery';
 import CustomerReviews from '@/components/CustomerReviews';
@@ -50,6 +51,9 @@ export default function Home() {
       {/* 6 Card Services Grid */}
       <ServicesGrid onSelectService={handleSelectService} />
 
+      {/* Official Story & Milestones (Since 2006 / Viraj Trading) */}
+      <AboutSection />
+
       {/* 4 Step Process Workflow */}
       <ProcessWorkflow />
 
@@ -59,7 +63,7 @@ export default function Home() {
       {/* Interactive Before & After Transformation Slider */}
       <BeforeAfterGallery />
 
-      {/* Customer Reviews & Google Proof */}
+      {/* Animated Vertical Marquee Customer Reviews */}
       <CustomerReviews />
 
       {/* Prayagraj Location & Inquiry Section */}

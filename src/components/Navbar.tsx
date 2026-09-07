@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Menu, X, Phone } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -24,7 +24,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     { name: 'Home', href: '#hero', active: true },
     { name: 'Services', href: '#services' },
     { name: '3D Studio', href: '#3d-studio' },
-    { name: 'About', href: '#process' },
+    { name: 'About', href: '#about' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Reviews', href: '#reviews' },
     { name: 'Contact', href: '#contact' },
@@ -34,23 +34,29 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-2xl'
-          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
+          ? 'bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10 py-2.5 shadow-2xl'
+          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo Matching Reference Image */}
-          <a href="#hero" className="flex flex-col text-left group">
-            <div className="flex items-center gap-1">
-              <span className="font-black text-xl sm:text-2xl tracking-wider text-white uppercase">
-                AUTO<span className="text-[#ff3847]">URANIUM</span>
+          {/* Official Auto Uranium Logo Image */}
+          <a href="#hero" className="flex items-center gap-3 group text-left">
+            <img
+              src="/images/auto_uranium_logo.jpg"
+              alt="Auto Uranium Logo"
+              className="w-12 h-12 rounded-full object-cover border border-white/20 shadow-lg group-hover:scale-105 group-hover:border-[#ff3847] transition-all"
+            />
+            <div className="flex flex-col text-left">
+              <div className="flex items-center gap-1">
+                <span className="font-black text-lg sm:text-xl tracking-wider text-white uppercase group-hover:text-[#ff3847] transition-colors">
+                  AUTO<span className="text-[#ff3847]">URANIUM</span>
+                </span>
+              </div>
+              <span className="text-[8px] tracking-[0.18em] text-gray-400 font-semibold uppercase -mt-0.5">
+                AN AUTO DETAILING STUDIO
               </span>
-              <span className="text-[#ff3847] text-lg font-black">+</span>
             </div>
-            <span className="text-[9px] tracking-[0.2em] text-gray-400 font-semibold uppercase -mt-0.5">
-              PROTECT WHAT MOVES YOU
-            </span>
           </a>
 
           {/* Desktop Center Navigation Links */}

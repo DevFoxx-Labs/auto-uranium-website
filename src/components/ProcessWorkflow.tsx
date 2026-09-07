@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'motion/react';
 import { Calendar, MessageSquare, Settings, Sparkles, ChevronRight } from 'lucide-react';
 
 export default function ProcessWorkflow() {
@@ -34,30 +35,41 @@ export default function ProcessWorkflow() {
     <section id="process" className="py-20 bg-[#0c0c0e] border-t border-b border-white/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-2">
             OUR PROCESS
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
             Simple. Transparent. <span className="text-[#ff3847]">Hassle-Free.</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* 4 Steps Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
-              <div
+              <motion.div
                 key={step.number}
-                className="relative flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#ff3847]/50 text-left transition-all duration-300 group cursor-pointer"
               >
-                <div className="w-14 h-14 rounded-full border border-[#ff3847]/40 bg-[#ff3847]/10 flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-[#ff3847]" />
+                <div className="w-14 h-14 rounded-full border border-[#ff3847]/40 bg-[#ff3847]/10 flex items-center justify-center shrink-0 group-hover:bg-[#ff3847] group-hover:text-white transition-colors shadow-lg shadow-[#ff3847]/20">
+                  <Icon className="w-6 h-6 text-[#ff3847] group-hover:text-white transition-colors" />
                 </div>
 
                 <div>
-                  <div className="text-[11px] font-bold text-gray-400">
+                  <div className="text-[11px] font-bold text-gray-400 group-hover:text-[#ff3847] transition-colors">
                     {step.number}
                   </div>
                   <h3 className="text-sm font-extrabold text-white uppercase tracking-wide mt-0.5">
@@ -73,7 +85,7 @@ export default function ProcessWorkflow() {
                     <ChevronRight className="w-5 h-5" />
                   </div>
                 )}
-              </div>
+              </motion.div>
             );
           })}
         </div>
